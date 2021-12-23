@@ -1,0 +1,34 @@
+<h2> Employee List</h2>
+<table class = "table table-striped">
+  <thead>
+  <tr>
+    <th> id </th>
+    <th> employee_name </th>
+    <th>  employee_salary</th>
+    <th>  employee_age </th>
+    <th>  profile_image </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let employee of employees" >
+
+    <td> {{ employee.id }} </td>
+    <td> {{ employee.name }} </td>
+    <td> {{ employee.salary}} </td>
+    <td> {{ employee.age}} </td>
+    <td> {{ employee.profile }} </td>
+
+    <div class="card-footer pb-0 pt-3">
+      <jw-pagination [employee]="employees" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+
+
+
+    <td>
+      <button (click) = "updateEmployee(employee.id)" class = "btn btn-info"> Update</button>
+      <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+      <button (click) = "employeeDetails(employee.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
